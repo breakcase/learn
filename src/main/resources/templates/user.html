@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+</head>
+<body>
+	<a title="个人资料" id="userhead"><img src="/sbus/assets/img/user.png" class="img-thumbnail" /></a>
+
+	<div class="inner-text">
+		<span id="username"><a href="/sbus/nologin/login" >请登录</a></span>
+		<br /> <small>Last Login : <span id="lastLogin">2018-5-20</span></small>
+	</div>
+
+	<script type="text/javascript" src="/sbus/js/jquery2.2.2.min.js"></script>
+	<script>
+		$(function(){ 
+			getUser();	
+		});
+		function getUser(){
+			$.ajax({
+		        cache: !1,
+		        type: "GET",
+		        url: "/sbus/user/getUser",
+		        data: "",//form表单中的所有属性
+		        success: function(data) {
+		        	if(data.successed == true){
+		        		$("#username").html(data.datas.nickname);
+		        		$("#userhead").attr("href","/sbus/user/getUserInfo?userid="+data.datas.userid); 
+		        		if(data.datas.lastLoginTime != null){
+		        			$("#lastLogin").html(data.datas.lastLoginTime);
+		        		}
+		        	}
+		        }
+		    })
+		}
+	</script>
+</body>
+</html>

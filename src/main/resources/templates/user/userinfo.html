@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>用户信息</title>
+
+<!-- BOOTSTRAP STYLES-->
+<link href="/sbus/assets/css/bootstrap.css" rel="stylesheet" />
+<!-- FONTAWESOME STYLES-->
+<link href="/sbus/assets/css/font-awesome.css" rel="stylesheet" />
+<!--CUSTOM BASIC STYLES-->
+<link href="/sbus/assets/css/basic.css" rel="stylesheet" />
+<!--CUSTOM MAIN STYLES-->
+<link href="/sbus/assets/css/custom.css" rel="stylesheet" />
+<!-- GOOGLE FONTS-->
+<link href='https://fonts.googleapis.com/css?family=Open+Sans'
+	rel='stylesheet' type='text/css' />
+
+<!-- 上传组件样式 -->
+<link rel="stylesheet" type="text/css" href="/sbus/css/file/webuploader.css" />
+<link rel="stylesheet" type="text/css" href="/sbus/css/file/style.css" />
+<!-- 上传组件样式 -->	
+	
+</head>
+<body>
+	<div id="wrapper">
+		<nav class="navbar navbar-default navbar-cls-top " role="navigation"
+			style="margin-bottom: 0">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle" data-toggle="collapse"
+					data-target=".sidebar-collapse">
+					<span class="sr-only">Toggle navigation</span> <span
+						class="icon-bar"></span> <span class="icon-bar"></span> <span
+						class="icon-bar"></span>
+				</button>
+				<a class="navbar-brand" href="index.html">COMPANY NAME</a>
+			</div>
+
+			<div class="header-right">
+
+				<a href="message-task.html" class="btn btn-info" title="New Message"><b>30
+				</b><i class="fa fa-envelope-o fa-2x"></i></a> <a href="message-task.html"
+					class="btn btn-primary" title="New Task"><b>40 </b><i
+					class="fa fa-bars fa-2x"></i></a> <a href="nologin/logout"
+					class="btn btn-danger" title="登出"><i
+					class="fa fa-exclamation-circle fa-2x"></i></a>
+
+			</div>
+		</nav>
+		<!-- /. NAV TOP  -->
+		<nav class="navbar-default navbar-side" role="navigation">
+			<div class="sidebar-collapse" id="main_menu"></div>
+		</nav>
+		<!-- /. NAV SIDE  -->
+		<div id="page-wrapper">
+			<form id="userinfo">
+			<table id="view_user">
+				<tr>
+					<td>
+						<div>
+							<a title="上传头像" id="userhead"><img src="/sbus/assets/img/user.png" th:src="${userDTO.srcHeadPic}" class="img-thumbnail" /></a>
+							<input type="hidden" id="headpic_hi">
+						</div>
+						<div id="uploader">
+                			<div class="queueList">
+                    			<div id="dndArea" class="placeholder">
+                        			<div id="filePicker"></div>
+                    			</div>
+                			</div>
+                			<div class="statusBar" style="display:none;">
+                    			<div class="progress">
+                        			<span class="text">0%</span>
+                       				<span class="percentage"></span>
+                    				</div><div class="info"></div>
+                    			<div class="btns">
+                        			<div id="filePicker2"></div><div class="uploadBtn">开始上传</div>
+                    			</div>
+                			</div>
+            			</div>
+					</td>
+						
+				</tr>
+				<tr>
+					<td>用户名：</td>
+					<td><input type="text" name="userName"
+						th:value="${userDTO.username}" /></td>
+				</tr>
+				<tr>
+					<td>昵称：</td>
+					<td>
+						<input type="hidden" name="userid" th:value="${userDTO.userid}" />
+						<input type="text" name="nickname" th:value="${userDTO.nickname}" /></td>
+				</tr>
+				<tr>
+					<td>联系电话：</td>
+					<td><input type="text" name="phoneNumber"
+						th:value="${userDTO.phoneNumber}" /></td>
+				</tr>
+				<tr>
+					<td>邮箱：</td>
+					<td><input type="text" name="email"
+						th:value="${userDTO.email}" /></td>
+				</tr>
+				<tr>
+					<td><a id="save_btn" class="btn btn-primary ">保存</a></td>
+				</tr>
+			</table>
+			</form>
+		</div>
+		<!-- /. PAGE WRAPPER  -->
+	</div>
+	<!-- /. WRAPPER  -->
+
+	<div id="footer-sec">
+		Copyright &copy; 2016.Company name All rights reserved.More Templates
+		<a href="http://www.cssmoban.com/" target="_blank" title="模板之家">模板之家</a>
+		- Collect from <a href="http://www.cssmoban.com/" title="网页模板"
+			target="_blank">网页模板</a>
+	</div>
+	<!-- /. FOOTER  -->
+	<!-- SCRIPTS -AT THE BOTOM TO REDUCE THE LOAD TIME-->
+	<!-- JQUERY SCRIPTS -->
+	<script src="/sbus/js/jquery2.2.2.min.js"></script>
+	<!-- BOOTSTRAP SCRIPTS -->
+	<script src="/sbus/assets/js/bootstrap.js"></script>
+	<!-- METISMENU SCRIPTS -->
+	<script src="/sbus/assets/js/jquery.metisMenu.js"></script>
+	<!-- CUSTOM SCRIPTS -->
+	<script src="/sbus/assets/js/custom.js"></script>
+	
+	<!-- 上传组件js -->
+	<script src="/sbus/js/file/webuploader.js"></script>
+    <script src="/sbus/js/file/upload.js"></script>
+
+	<script src="/sbus/js/user/user.js"></script>
+
+	<script type="text/javascript">
+		$("#main_menu").load("/sbus/nologin/main_menu");//加载用户信息页面
+	</script>
+
+</body>
+</html>

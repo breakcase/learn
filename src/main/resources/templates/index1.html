@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+	<h3 th:text="登录成功"></h3>
+	<a href="/logout">注销</a>
+	<h3 th:text="上传文件"></h3>
+	<a href="/sbus/upload">上传</a>
+
+	<div>
+		<form name="form" accept-charset="utf-8" action="/sbus/changepwd"
+			method="post">
+			<ul>
+				<li>
+					<label for="username" class="input-tips2">用户名：</label>
+					<div class="inputOuter2">
+						<input type="text" id="username" name="username" maxlength="16" />
+					</div>
+				</li>
+				<li>
+					<label for="password" class="input-tips2">旧密码：</label>
+					<div>
+						<input type="password" id="password" name="password"
+							maxlength="16" />
+					</div>
+				</li>
+				<li>
+					<label for="newPwd" class="input-tips2">新密码：</label>
+					<div>
+						<input type="password" id="newPwd" name="newPwd"
+							maxlength="16" />
+					</div>
+				</li>
+				<li>
+					<label for="conNewPwd" class="input-tips2">再次输入新密码：</label>
+					<div>
+						<input type="password" id="conNewPwd" name="conNewPwd"
+							maxlength="16" />
+					</div>
+				</li>
+				<li>
+					<div>
+						<input type="submit" value="修改" />
+					</div>
+				</li>
+			</ul>
+		</form>
+	</div>
+</body>
+</html>
